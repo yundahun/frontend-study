@@ -11,6 +11,10 @@
     a {
             color: gold;
     }
+
+    textarea {
+        resize: none;
+    }
     </style>
 
 </head>
@@ -51,5 +55,17 @@
             아니네<br>이렇게쓰면<br>줄바꿈이<br>되는건가?
         </p>
         
+
+        <form action="/login">
+        <input type="text" name="id">
+        <input type="password" name="pw">
+        <button type="submit">로그인</button>
+        </form>
+
+        <br>
+
+        <textarea id="multi" cols="20" rows="5"></textarea>
+        <textarea id="multi" cols="20" rows="5"></textarea>
+        <textarea id="multi" cols="20" rows="5"></textarea>
 </body>
 </html>
