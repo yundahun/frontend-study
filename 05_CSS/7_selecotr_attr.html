@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 속성 선택자: HTML의 속성과 값으로 요소 선택, [] 기호 사용 */
+    /* [disabled] {
+      color: red;
+    } */
+
+    /* [type="password"] {
+      color: red;
+      background-color: dodgerblue;
+    } */
+    /* [value="OPQR"] {
+      color: red;
+      background-color: dodgerblue;
+    } */
+
+    [value="DAHUN"] {
+      color: red;
+      background-color: lightpink;
+    }
+
+    [data-fruit-name] {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="DAHUN">
+  <input type="password" value="0319">
+  <input type="text" value="OPQR" disabled>
+  <span data-fruit-name="apple">사과</span>
+</body>
+</html>
