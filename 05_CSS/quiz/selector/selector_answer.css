@@ -21,17 +21,10 @@ nav .main-menu {
 }
 
 /* 5. 62~77 라인의 <ul>태그에서 3번째 <li>을 선택하는 선택자를 작성(가상 클래스 선택자 필수) */
-ul *:nth-child(3) {
- border: 2px solid darkorange;
+#detail_list *:nth-child(4) *:nth-child(3) {
+  border: 2px solid darkorange;
 }
 
-.column-1 *:nth-child(3) {
-  border: 0px;
-}
-
-.main-menu *:nth-child(3) {
-  border: 0px;
-}
 /* 6. 78 라인의 <h3>태그에 마우스를 올렸을 때의 선택자를 작성 */
 h3:hover {
   border: 2px solid darkkhaki;
