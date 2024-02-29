@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 공통 스타일은 앞부분에 작성 */
+    ul {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .navbar {
+      display: flex;
+      font-weight: 700;
+    }
+
+    li {
+      background-color: #eee;
+      border: 0;
+      border-radius: 3px;
+      padding: 10px 20px;
+    }
+    li + li {
+      margin-left: 10px;
+    }
+    .container {
+      display: flex;
+      width: 800px;
+      margin: 0 auto;
+    }
+    .blog-content {
+      /* background-color: aquamarine; */
+      width: 80%;
+      height: 200px;     
+      
+    }
+    .content-header {
+      display: flex;
+    }
+    .profile {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    .name {
+      line-height: 2;
+      font-weight: 700;
+    }
+    .blog-img {
+      /* background-color: coral; */
+      width: 20%;
+      height: 200px;
+      
+    }
+  </style>
+</head>
+<body>
+  <!-- Tip! 레이아웃을 만드는 기본
+    뭘 만들든 레이아웃은 항상 수평(행)으로 자른 후 박스부터 만들고 시작하면 됨
+    그리고 이 박스들을 전부 <div>로 구현해 놓으면 됨(물론 시맨틱 태그도 최대한 활용)
+    그리고 안에 글 넣고 그림 넣고 하면 끝!
+  
+  이 때 <div>는 블록 요소이기 때문에 위아래로 배치
+    좌우로 나란히 배치하고 싶으면 float(🤮), inline-block(🤔), Flexbox(😄)
+  -->
+
+  <!-- navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="">영화</a></li>
+      <li><a href="">맛집</a></li>
+      <li><a href="">IT</a></li>
+      <li><a href="">컴퓨터</a></li>
+    </ul>
+  </nav>
+
+  <!-- blog list -->
+  <div class="container">
+    <div class="blog-content">
+      <div class="content-header">
+        <!-- 프로필 이미지 -->
+        <img src="p_images/다운로드.png" alt="프로필" class="profile">
+        <!-- 작성자, 시간 -->
+        <span><span class="name">Liverpool</span><br>1시간 전</span>
+      </div>
+      <div class="content-body">
+        <!-- 글 제목, 글 내용-->
+        <h3> !축! 카라바오컵 우승!</h3>
+        <p>리버풀이 26일 00시(한국시간)에 열린 첼시와의 카라바오컵 결승전에서 0:0으로 팽팽하던
+          연장후반 118분 반 다이크의 결승골로 1:0으로 승리하며 통산 10번째 우승을 달성했습니다 </p>
+      </div>
+    </div>
+    <div class="blog-img">
+      <!-- 샘플 이미지 -->
+      <img src="https://dummyimage.com/160x200" alt="이미지">
+    </div>
+  </div>
+</body>
+</html>
