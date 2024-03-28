@@ -17,17 +17,34 @@
 
 
     // 풀이4-1
-    const height = prompt('신장을 입력해주세요.')
-    if (height >= 150) {
-      document.write("놀이기구 이용 가능")
-    } else {
-      const result = confirm("부모님과 함께 오셨나요");
-      if (result) {
-        document.write('좋은 시간 보내렴~')
-      } else {
-        document.write('어른 모시고 다시 오렴~')
-      }
+    // const height = prompt('신장을 입력해주세요.')
+    // if (height >= 150) {
+    //   document.write("놀이기구 이용 가능")
+    // } else {
+    //   const result = confirm("부모님과 함께 오셨나요");
+    //   if (result) {
+    //     document.write('좋은 시간 보내렴~')
+    //   } else {
+    //     document.write('어른 모시고 다시 오렴~')
+    //   }
+    // }
+
+    // 선생님 풀이
+    const height2 = prompt('신장을 입력해주세요.', '0');
+    let msg = '놀이기구 이용 가능';
+
+    if (height2 < 150) {
+      // const withMOm = confirm('부모님과 함께 왔니??');
+      // if (withMom) {
+      //   msg = '좋은 시간 보내렴~';
+      // } else {
+      //   msg = '어른 모시고 다시 오렴~';
+      // }
+
+      //다른 풀이
+      msg = confirm('부모님과 함께 왔니??') ? '좋은 시간 보내렴~' : '어른 모시고 다시 오렴~';
     }
+    document.write(msg);
   </script>
 </head>
 <body>
