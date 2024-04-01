@@ -174,9 +174,25 @@
     // Quiz: 이전/다음 버튼으로 이미지 넘기기
     // (위에 body 참조 ***)
     // 힌트: img 태그를 선택 후 setAtribute를 이용하여 src 속성 변경
-    function gallery() {
-      
+
+    const galleryImg = document.querySelector('.photo');
+    let i = 1;
+    function gallery(PREV, NEXT) {
+      i += 1;
+      if (i <= 8) {
+        galleryImg.setAttribute(`src` , `images/pic_${i}.jpg`);
+      }
     }
+
+    // function gallery() {
+    //   for (let i = 1; i <= 8; i++) {
+    //     i += 1;
+    //     galleryImg.setAttribute(`src` , `images/pic_${i}.jpg`);
+    //     if (i == 1 || i == 8) {
+    //       return;
+    //     }
+    //   }
+    // }
   </script>
 </body>
 
