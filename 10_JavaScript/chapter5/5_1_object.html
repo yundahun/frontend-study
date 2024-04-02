@@ -35,6 +35,18 @@
     };
     document.write('<h1>tv 객체 메소드 호출</h1>');
     document.write(tv.info(), '<br>');
+
+    // 2) 리터럴 방식을 이용
+    const car = {
+      color: 'black',
+      price: '5000000',
+      info: function () {
+        return`tv 색상: ${this.color}, 가격: ${this.price}`;
+      }
+    };
+    document.write('<h1>tv 객체 메소드 호출</h1>');
+    document.write(tv.info(), '<br>');
+  
   </script>
 </body>
 </html>
