@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문제2
+    // 나 자신의 정보로 사람(person) 객체 만들기(리터럴 방식 이용)
+    // 속성 - firstName(문자), lastName(문자), age(숫자), gender('남자' or '여자'), hobby(배열 [])
+    // 메소드 - firstName과 lastName 두 문자열을 연결하여 반환하는 getFullName() 작성,
+    // 이외에도 speak(), walk(), eat() 등 자유롭게 한가지 이상 작성
+    // (메소드 내 실행 코드는 return문을 사용하여 간단한 문자열 반환)
+
+    // 객체 완성 후 모든 속성 및 메소드 결과를 출력해보세요.
+    // 단, 객체의 속성 값을 얻기 위해 점 표기법(.)과 대괄호 표기법([])을 골고루 사용해 볼 것!
+
+
+    // 풀이2
+    const person = {
+      firstname: 'DaHun',
+      lastname: 'Yun',
+      age: 27,
+      gender: '남자',
+      hobby: ['축구', '탁구', '리그 오브 레전드'],
+      getFullName: function () {
+        return this.lastname + this.firstname;
+      },
+      now: 'very sleep',
+      today: 'go to alba',
+      'my dinner': ['현미밥', '닭가슴살', '삶은계란'],
+      ask: function () {
+        return this.firstname + '(이)가 대답합니다. "저요! 저요!"';
+      }
+    };
+    console.log(person.getFullName());
+    console.log(person.today);
+    console.log(person['my dinner']);
+    document.write(person.getFullName(), '<br>');
+    document.write(person['my dinner'][1], '<br>');
+    document.write(person.today, '<br>');
+    document.write(person.hobby[2], '<br>');
+    document.write(person.ask());
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
