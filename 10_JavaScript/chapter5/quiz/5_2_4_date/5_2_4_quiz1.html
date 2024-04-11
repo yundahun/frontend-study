@@ -13,18 +13,11 @@
     // 그리고 생성한 날짜 객체 정보를 예쁘게 출력하세요.
 
     // 풀이1
-    const someday = new Date(2023, 1, 20, 3, 12, 0);
-    const theYear = someday.getFullYear();
-    const theMonth = someday.getMonth();
-    const theDate = someday.getDate();
-    const theDay = someday.getDay();
+    const someday = new Date(2023, 1, 20, 3, 12)
+    document.write(someday.toLocaleDateString(), '<br>');
 
-    document.write(`날짜 정보(기본 포맷): ${someday}<br>`);
-    document.write(`연도: ${theYear}<br>`);
-    document.write(`월: ${theMonth}<br>`);
-    document.write(`일: ${theDate}<br>`);
-    document.write(`요일: ${theDay}<br>`);
-    
+    const someday2 = new Date('2023-02-20T03:12:00')
+    document.write(someday2.toLocaleDateString(), '<br>');
   </script>
 </head>
 <body>
