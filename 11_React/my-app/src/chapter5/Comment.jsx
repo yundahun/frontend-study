@@ -48,10 +48,12 @@ function Comment(props) {
 
       {/* 댓글 작성자와 내용 */}
       <div style={styles.contentContainer}>
-        <span style={styles.nameText}>{props.user.name}</span>
+        <span style={styles.nameText}>
+          {props.name}
+          </span>
 
         <span style={styles.contentText}>
-        {props.user.content}
+        {props.content}
         </span>
       </div>
     </div>
