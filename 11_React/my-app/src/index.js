@@ -19,6 +19,10 @@ import Mailbox from './chapter9/9.3/Mailbox';
 import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
 import MainPage from './chapter9/9.4/MainPage';
 import LandingPage from './chapter9/LandingPage';
+import NumberList from './chapter10/10.1/NumberList';
+import ListKey from './chapter10/10.2/ListKey';
+import AttendanceBook from './chapter10/AttendanceBook';
+import NameForm from './chapter11/11.2/NameForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -58,7 +62,15 @@ root.render(
     // <Mailbox unreadMessages={[]} />
     // <LoginControlRefactoring />
     // <MainPage />
-    <LandingPage />
+    // <LandingPage />
+
+    //10장 예제
+    // <NumberList />
+    // <ListKey />
+    // <AttendanceBook />
+
+    //11장 예제
+    <NameForm />
 );
 
 // 4장 예제
