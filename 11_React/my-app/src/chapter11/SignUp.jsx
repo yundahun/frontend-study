@@ -23,22 +23,33 @@ function SignUp() {
   const [name, setName] = useState('');
 
   const handleChangeName = (e) => {
-    setName(e.target.name)
-  }
+    setName(e.target.value)
+  };
+
+  const [gender, setGender] = useState('남자');
+
+  const handleChangeGender = (e) => {
+    setGender(e.target.value)
+  };
+
+  const handleSubmit = (e) => {
+    alert(`이름 : ${name} 성별 : ${gender}`)
+    e.preventDefault();
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         <input type="text"
-        name
         onChange={handleChangeName}
+        value={name}
         />
 
         <select
-        value={value}
+        value={gender}
         onChange={handleChangeGender}>
           <option value="man">남자</option>
-          <option value="woman">여자ㅏ</option>
+          <option value="woman">여자</option>
         </select>
       </label>
 
