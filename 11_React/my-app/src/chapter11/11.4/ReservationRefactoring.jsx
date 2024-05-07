@@ -10,12 +10,12 @@ function ReservationRefactoring() {
     numberOfGuests: 2,
     roomType: 'SINGLE'
   });
-  const {breakfast, numberOfGuests, roomType} = inputs; // 구조 분해 할당을 통해 값 추출
+  const { breakfast, numberOfGuests, roomType } = inputs; // 구조 분해 할당을 통해 값 추출
 
   const handleInputChange = (e) => {
     console.log(e.target); // 현재 이벤트가 발생한 대상 객체
-    
-    const { type, name, checked, value} = e.target;
+
+    const { type, name, checked, value } = e.target;
     const inputValue = type === 'checkbox' ? checked : value;
     console.log(name, inputValue);
 
@@ -59,10 +59,10 @@ function ReservationRefactoring() {
       <label>
         조식 여부:
         <input
-        type="checkbox"
-        name="breakfast" // name 속성 추가
-        checked={breakfast}
-        onChange={handleInputChange}
+          type="checkbox"
+          name="breakfast" // name 속성 추가
+          checked={breakfast}
+          onChange={handleInputChange}
         />
       </label>
 
@@ -71,13 +71,13 @@ function ReservationRefactoring() {
       <label>
         투숙객 수:
         <input
-        type="number"
-        name="numberOfGuests" // name 속성 추가
-        value={numberOfGuests}
-        onChange={handleInputChange}
+          type="number"
+          name="numberOfGuests" // name 속성 추가
+          value={numberOfGuests}
+          onChange={handleInputChange}
         />
       </label>
-      
+
       <br />
 
       룸 타입:
@@ -88,8 +88,8 @@ function ReservationRefactoring() {
           value="SINGLE"
           checked={roomType === 'SINGLE'}
           onChange={handleInputChange}
-          />
-          싱글
+        />
+        싱글
       </label>
       <label>
         <input
@@ -98,9 +98,9 @@ function ReservationRefactoring() {
           value="DOUBLE"
           checked={roomType === 'DOUBLE'}
           onChange={handleInputChange}
-          />
-          더블
-        </label>
+        />
+        더블
+      </label>
       <label>
         <input
           type="radio"
@@ -108,11 +108,11 @@ function ReservationRefactoring() {
           value="TWIN"
           checked={roomType === 'TWIN'}
           onChange={handleInputChange}
-          />
-          트윈
-        </label>
+        />
+        트윈
+      </label>
 
-        <button type="submit">제출</button>
+      <button type="submit">제출</button>
     </form>
   );
 };

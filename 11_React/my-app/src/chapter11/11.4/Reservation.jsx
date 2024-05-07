@@ -28,10 +28,10 @@ function Reservation() {
       <label>
         조식 여부:
         <input
-        type="checkbox"
-        //checked 속성은 checkbox랑 radio 타입에 존재하고 boolean 타입의 값
-        checked={breakfast}
-        onChange={handleBreakfastChange}
+          type="checkbox"
+          //checked 속성은 checkbox랑 radio 타입에 존재하고 boolean 타입의 값
+          checked={breakfast}
+          onChange={handleBreakfastChange}
         />
       </label>
 
@@ -40,12 +40,12 @@ function Reservation() {
       <label>
         투숙객 수:
         <input
-        type="number"
-        value={numberOfGuests}
-        onChange={handleGuestsChange}
+          type="number"
+          value={numberOfGuests}
+          onChange={handleGuestsChange}
         />
       </label>
-      
+
       <br />
 
       룸 타입:
@@ -56,8 +56,8 @@ function Reservation() {
           value="SINGLE"
           checked={roomType === 'SINGLE'}
           onChange={handleRoomChange}
-          />
-          싱글
+        />
+        싱글
       </label>
       <label>
         <input
@@ -67,9 +67,9 @@ function Reservation() {
           checked={roomType === 'DOUBLE'}
 
           onChange={handleRoomChange}
-          />
-          더블
-        </label>
+        />
+        더블
+      </label>
       <label>
         <input
           type="radio"
@@ -77,11 +77,11 @@ function Reservation() {
           value="TWIN"
           checked={roomType === 'TWIN'}
           onChange={handleRoomChange}
-          />
-          트윈
-        </label>
+        />
+        트윈
+      </label>
 
-        <button type="submit">제출</button>
+      <button type="submit">제출</button>
     </form>
   );
 };
