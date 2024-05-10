@@ -35,6 +35,12 @@ import UnitCalculator from './chapter12/UnitCalculator';
 import UnitInput from './chapter12/UnitInput';
 import WelcomeDialog from './chapter13/13.1.1.1/WelcomeDialog';
 import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
+import DialogContainer from './chapter13/13.1.2/DialogContainer';
+import Dialog from './chapter13/13.1.2/Dialog';
+import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
+import ProfileCard from './chapter13/ProfileCard';
+import Card from './chapter13/Card';
+import StyledPage from './chapter15/StyledPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -98,7 +104,15 @@ root.render(
 
     // 13장 예제
     // <WelcomeDialog />
-    <SplitPaneSection />
+    // <SplitPaneSection />
+    // <DialogContainer />
+    // <Dialog />
+    // <SignUpDialog />
+    // <ProfileCard />
+    // <Card />
+
+    // 15장 예제
+    <StyledPage />
 );
 
 // 4장 예제
