@@ -41,6 +41,7 @@ import SignUpDialog from './chapter13/13.1.3/SignUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
 import Card from './chapter13/Card';
 import StyledPage from './chapter15/StyledPage';
+import Blocks from './chapter15/theme/Blocks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -112,7 +113,8 @@ root.render(
     // <Card />
 
     // 15장 예제
-    <StyledPage />
+    // <StyledPage />
+    <Blocks />
 );
 
 // 4장 예제
