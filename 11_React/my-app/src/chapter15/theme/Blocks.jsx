@@ -43,7 +43,7 @@ function Blocks() {
       {blockItems.map((blockItem) => {
         return (
           <Block
-            key={blockItems.label}
+            key={blockItem.label}
             $padding={blockItem.padding}
             $backgroundColor={blockItem.backgroundColor}
           >
