@@ -42,6 +42,7 @@ import ProfileCard from './chapter13/ProfileCard';
 import Card from './chapter13/Card';
 import StyledPage from './chapter15/StyledPage';
 import Blocks from './chapter15/theme/Blocks';
+import ThemeApp from './chapter15/theme/ThemeApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -114,7 +115,8 @@ root.render(
 
     // 15장 예제
     // <StyledPage />
-    <Blocks />
+    // <Blocks />
+    <ThemeApp />
 );
 
 // 4장 예제
