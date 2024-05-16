@@ -47,7 +47,7 @@ function App() {
   useEffect(() => {
     const dbTodos = JSON.parse(localStorage.getItem('todos') || []); // 초기에 'todos'가 없으면 null을 반환함
     setTodos(dbTodos);
-  }, [])
+  }, []);
 
   // 로컬 스토리지에 저장하기 (주의 : DB가 아님, DB처럼 쓰면 안됨!!)
   // 추가, 수정, 삭제 각 함수에 로직을 넣어도 되지만, useEffect()를 활용하면 한번에 처리 가능!
