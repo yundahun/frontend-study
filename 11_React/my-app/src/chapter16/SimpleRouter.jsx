@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import PlacePage from "./pages/PlacePage";
 import GamePage from "./pages/GamePage";
 import HotGamePage from "./pages/HotGamePage";
 import NewGamePage from "./pages/NewGamePage";
+import AboutPage from "./pages/AboutPage";
+import NoMatchPage from "./pages/NoMatchPage";
 
 // 0. react-router-dom 설치하기
 // npm install react-router-dom
@@ -55,12 +57,29 @@ function SimpleRouter() {
 
         {/* 방법2. Nested Route 방식 */}
         {/* 서브 경로 방식과 차이점: 부모 엘리먼트 + 자식 엘리먼트가 같이 보임 */}
-        {/* 부모 안에 자식들을 렌더링해서 보여줌(부모안에서 어디에 보여줄지는 Outlet 컴포넌트로 지정) */}
+        {/* 부모 안에 자식들을 렌더링해 보여줌(부모안에서 어디에 보여줄지는 Outlet 컴포넌트로 지정) */}
         {/* 활용 예: 헤더, 푸터 사이에 메인 영역 */}
+        {/* Nested 안에 또 Nested 가능 */}
         <Route path="/games" element={<GamePage />}>
-          <Route path="hot" element={<HotGamePage/>} />
-          <Route path="new" element={<NewGamePage/>} />
+          <Route path="hot" element={<HotGamePage />} />
+          <Route path="new" element={<NewGamePage />} />
         </Route>
+
+        {/* URL 파라미터와 쿼리스트링 */}
+        {/* URL 파라미터는 주소의 경로에 유동적인 값을 넣는 형태고, 
+          쿼리스트링은 주소의 뒷부분에 ? 문자열 이후에 key=value로 값을 정의하며 &로 구분을 하는 형태 */}
+        {/* 주로 URL 파라미터는 ID 또는 이름을 사용하여 특정 데이터를 조회할 때 사용하고,
+          쿼리스트링은 키워드 검색, 페이지네이션, 정렬 방식 등 데이터 조회에 필요한 옵션을 전달할 때 사용
+          (근데 꼭 위와 같이 쓰라고 정해진 규칙이 있는 것은 아님)
+
+          URL 파라미터 예시: https://vibe.naver.com/album/31618044
+          쿼리스트링 예시: /articles?keyword=react&page=1&sort=popular
+        */}
+        <Route path="/about" element={<AboutPage />} />
+
+        {/* 위에 설정한 라우팅 경로 이외의 경우 */}
+        {/* *의 의미는 match anything */}
+        <Route path="*" element={<NoMatchPage />} />
       </Routes>
     </BrowserRouter>
   );
