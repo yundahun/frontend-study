@@ -69,7 +69,7 @@ function App() {
 
   // 로컬 스토리지에서 가져오기
   useEffect(() => {
-    const dbTodos = JSON.parse(localStorage.getItem('todos') || []); // 초기에 'todos'가 없으면 null을 반환함
+    const dbTodos = JSON.parse(localStorage.getItem('todos')) || []; // 초기에 'todos'가 없으면 null을 반환함
     setTodos(dbTodos);
   }, []);
 

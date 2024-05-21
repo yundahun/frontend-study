@@ -48,5 +48,4 @@ function TodoTemplate(props) {
     </TodoTemplateWrapper>
   );
 };
-
 export default TodoTemplate;
