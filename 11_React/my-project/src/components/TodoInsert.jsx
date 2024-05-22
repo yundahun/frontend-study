@@ -6,7 +6,6 @@ const TodoInsertWrapper = styled.form`
   display: flex;
   background-color: #1729f6;
   border-radius: 0px 0px  16px 16px;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
 `
 ;
 
@@ -36,7 +35,6 @@ const StyledButton = styled.button`
   cursor: pointer;
   transition: 0.2s background ease-in;
   border-radius:  0px 0px 16px;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
   font-family: "Dongle", sans-serif;
 
   &:hover {
