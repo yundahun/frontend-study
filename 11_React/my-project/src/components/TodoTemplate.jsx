@@ -17,10 +17,11 @@ const TemplateBlock = styled.div`
 `
 
 
-function TodoTemplate() {
+function TodoTemplate({ children }) {
   return (
-    <>
-    </>
+    <TemplateBlock>
+      {children}
+    </TemplateBlock>
   );
 };
 
