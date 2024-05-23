@@ -60,7 +60,7 @@ const Text = styled.div`
 `;
 
 function TodoItem(props) {
-  const { todo: {text, done} } = props;
+  const { todo: {id, text, done} } = props;
 
   return (
     <TodoItemBlock>

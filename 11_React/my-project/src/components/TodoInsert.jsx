@@ -6,8 +6,7 @@ const TodoInsertWrapper = styled.form`
   display: flex;
   background-color: #1729f6;
   border-radius: 0px 0px  16px 16px;
-`
-;
+`;
 
 const StyledInput = styled.input`
   font-family: "Dongle", sans-serif;
@@ -42,17 +41,21 @@ const StyledButton = styled.button`
   }
 `;
 
+function TodoInsert({ onInsert }) {
+  const [value, setValue] = useState('');
 
-function TodoInsert() {
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
-const [value, setValue] = useState('');
-
-const handleChange = (e) => {
-  setValue(e.target.value);
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onInsert(value);
+    setValue('');
+  };
 
   return (
-    <TodoInsertWrapper>
+    <TodoInsertWrapper onSubmit={handleSubmit}>
       <StyledInput
         type="text"
         value={value}
@@ -64,6 +67,6 @@ const handleChange = (e) => {
       </StyledButton>
     </TodoInsertWrapper>
   );
-};
+}
 
-export default TodoInsert;  
+export default TodoInsert;
