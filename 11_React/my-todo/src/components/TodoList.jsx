@@ -14,9 +14,6 @@ function TodoList(props) {
 
   return (
     <TodoListWrapper>
-      {/* <TodoListItem />
-      <TodoListItem />
-      <TodoListItem /> */}
       {todos.map((todo, index) => {
         return <TodoListItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle} onModal={onModal} />;
       })}
