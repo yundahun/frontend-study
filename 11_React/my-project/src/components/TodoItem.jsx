@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { MdDone, MdDelete } from 'react-icons/md';
+import { MdDone, MdDelete, MdEdit } from 'react-icons/md';
 
 
 
@@ -16,6 +16,19 @@ const Remove = styled.div`
   display: none;
 `;
 
+const Edit = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dee2e6;
+  font-size: 24px;
+  cursor: pointer;
+  &:hover {
+    color:  #4c5af4;
+  }
+  display: none;
+`;
+
 const TodoItemBlock = styled.div`
   display: flex;
   align-items: center;
@@ -23,6 +36,9 @@ const TodoItemBlock = styled.div`
   padding-bottom: 12px;
   &:hover {
     ${Remove} {
+      display: initial;
+    }
+    ${Edit} {
       display: initial;
     }
   }
@@ -60,13 +76,18 @@ const Text = styled.div`
 `;
 
 function TodoItem(props) {
-  const { todo: {id, text, done} } = props;
+  const { todo: {id, text, done}, onRemove, onToggle, onModal } = props;
 
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={() => onToggle(id)}>
+        {done && <MdDone />}
+        </CheckCircle>
       <Text done={done}>{text}</Text>
-      <Remove>
+      <Edit onClick={() => onModal(id)}>
+        <MdEdit />
+      </Edit>
+      <Remove onClick={() => onRemove(id)}>
         <MdDelete />
       </Remove>
     </TodoItemBlock>

@@ -9,12 +9,12 @@ const TodoListBlock = styled.div`
 `;
 
 function TodoList(props) {
-  const { todos } = props;
+  const { todos, onRemove, onToggle, onModal } = props;
 
   return (
     <TodoListBlock>
       {todos.map((todo, index) => {
-        return <TodoItem key={todo.id} todo={todo} />
+        return <TodoItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle} onModal={onModal} />;
       })}
     </TodoListBlock>
   );

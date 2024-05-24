@@ -59,7 +59,7 @@ function TodoInsert({ onInsert }) {
       <StyledInput
         type="text"
         value={value}
-        placeholder="일정을 입력하세요."
+        placeholder="일정을 입력한 후, Enter 누르세요."
         onChange={handleChange}
       />
       <StyledButton type="submit">
