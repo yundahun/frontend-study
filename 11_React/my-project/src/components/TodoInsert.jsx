@@ -49,19 +49,19 @@ function TodoInsert({ onInsert }) {
     setValue(e.target.value);
   };
 
+  const [modalOn, seTmodalOn] = useState(false);
+
   const handleSubmit = (e) => {
 
       e.preventDefault();
   
       if (!value) {
-        <Modal2 />
-        return; //함수종료
+        seTmodalOn(true);
+        return;
       }
 
       onInsert(value);
       setValue('');
-
-
   };
 
   
@@ -74,7 +74,6 @@ function TodoInsert({ onInsert }) {
         placeholder="일정을 입력한 후, Enter 누르세요."
         onChange={handleChange}
         />
-        {/* {value? null: <Modal2/>} */}
       <StyledButton type="submit">
         <BiSolidCalendarCheck />
       </StyledButton>

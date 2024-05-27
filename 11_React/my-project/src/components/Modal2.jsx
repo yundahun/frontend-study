@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaRegWindowClose } from "react-icons/fa";
+import { useState } from "react";
 
 
 const Background = styled.div`
