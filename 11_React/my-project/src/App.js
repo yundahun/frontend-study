@@ -62,14 +62,16 @@ const nextId = useRef(4);
     handleCloseModal();
   }
 
+  const doingWork = todos.filter(todo => !todo.done).length;
+
   return (
     <>
       <Reset />
       <GlobalStyle />
       <TodoTemplate>
-        <TodoHead />
+        <TodoHead doingWork={doingWork !== 0 ? doingWork + '개 입니다! 힘내세요!': '없습니다! 고생했어요!'}/>
         <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onModal={handleOpenModal}/>
-        <TodoInsert onInsert={handleInsert} />
+        <TodoInsert onInsert={handleInsert}/>
       </TodoTemplate>
       
       {showModal && ( 
@@ -80,7 +82,7 @@ const nextId = useRef(4);
         >
           <input type="text" value={editTodo.text} onChange={handleChange}></input>
         </Modal>
-      )}  
+      )}
     </>
   );
 };

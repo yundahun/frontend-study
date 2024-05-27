@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiSolidCalendarCheck } from "react-icons/bi";
 import styled from "styled-components";
+import Modal2 from "./Modal2";
 
 const TodoInsertWrapper = styled.form`
   display: flex;
@@ -49,10 +50,21 @@ function TodoInsert({ onInsert }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onInsert(value);
-    setValue('');
+
+      e.preventDefault();
+  
+      if (!value) {
+        <Modal2 />
+        return; //함수종료
+      }
+
+      onInsert(value);
+      setValue('');
+
+
   };
+
+  
 
   return (
     <TodoInsertWrapper onSubmit={handleSubmit}>
@@ -61,7 +73,8 @@ function TodoInsert({ onInsert }) {
         value={value}
         placeholder="일정을 입력한 후, Enter 누르세요."
         onChange={handleChange}
-      />
+        />
+        {/* {value? null: <Modal2/>} */}
       <StyledButton type="submit">
         <BiSolidCalendarCheck />
       </StyledButton>

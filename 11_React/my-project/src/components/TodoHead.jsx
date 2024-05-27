@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TodoItem from "./TodoItem";
 
 const TodoHeadBlock = styled.div`
   padding-top: 16px;
@@ -37,11 +38,12 @@ const dateString = today.toLocaleDateString('ko-Kr', {
 const dayName = today.toLocaleDateString('ko-Kr', { weekday: 'long'});
 
 
-function TodoHead() {
+function TodoHead(props) {
+  const { doingWork } = props;
   return (
     <TodoHeadBlock>
       <h1>{dateString}<div className="day">{dayName}</div></h1>
-      <div className="tasks-left">남은 일정 X개입니다! 힘내세요! </div>
+      <div className="tasks-left">남은 일정이 {doingWork}</div>
     </TodoHeadBlock>
   );
 };
