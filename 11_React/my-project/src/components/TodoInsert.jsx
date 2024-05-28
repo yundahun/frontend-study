@@ -49,20 +49,25 @@ function TodoInsert({ onInsert }) {
     setValue(e.target.value);
   };
 
-  const [modalOn, seTmodalOn] = useState(false);
+  const [modalOn, setModalOn] = useState(false);
 
   const handleSubmit = (e) => {
 
       e.preventDefault();
   
       if (!value) {
-        seTmodalOn(true);
+        setModalOn(true);
         return;
       }
 
       onInsert(value);
       setValue('');
   };
+
+  const handleCloseModal = () => {
+    setModalOn(false);
+  };
+
 
   
 
@@ -77,8 +82,9 @@ function TodoInsert({ onInsert }) {
       <StyledButton type="submit">
         <BiSolidCalendarCheck />
       </StyledButton>
+      {modalOn && (<Modal2 onCloseModal={handleCloseModal} />)}
     </TodoInsertWrapper>
-  );
+);
 }
 
 export default TodoInsert;

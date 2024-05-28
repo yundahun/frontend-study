@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useRef, useState } from "react";
 import Modal from "./components/Modal";
 
+
 const GlobalStyle = createGlobalStyle`
 
 body {
@@ -83,6 +84,7 @@ const nextId = useRef(4);
           <input type="text" value={editTodo.text} onChange={handleChange}></input>
         </Modal>
       )}
+
     </>
   );
 };

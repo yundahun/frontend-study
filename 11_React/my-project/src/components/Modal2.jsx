@@ -20,7 +20,7 @@ const Background = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  width: 25rem;
+  width: 15rem;
   height: 10rem;
   background: #4c5af4;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
@@ -33,10 +33,11 @@ const ModalContainer = styled.div`
 
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0.75rem;
     font-family: "Dongle", sans-serif;
+    font-size: 30px;
   }
 
   hr {
@@ -52,26 +53,24 @@ const ModalContainer = styled.div`
 
   .footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 35px 20px;
   }
 `;
 
-
 function Modal2(props) {
-const {onCloseModal} = props;
-
+  const {onCloseModal} = props;
 
   return (
     <Background>
       <ModalContainer>
         <div className="header">
-          <span className="modal-title">값을 입력해주세요!</span>
+          <span className="modal-title">내용을 입력해주세요!</span>
         </div>
         <hr />
         <div className="footer">
-          <button type="button" onClick={onCloseModal}>되돌아가기</button>
+          <button type="button" onClick={onCloseModal} >되돌아가기</button>
         </div>
       </ModalContainer>
     </Background>

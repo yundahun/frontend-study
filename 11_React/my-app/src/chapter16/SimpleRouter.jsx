@@ -4,7 +4,7 @@ import PlacePage from "./pages/PlacePage";
 import GamePage from "./pages/GamePage";
 import HotGamePage from "./pages/HotGamePage";
 import NewGamePage from "./pages/NewGamePage";
-import AboutPage from "./pages/AboutPage";
+import AboutPage from "./pages/AboutPage"; 
 import NoMatchPage from "./pages/NoMatchPage";
 
 // 0. react-router-dom 설치하기
