@@ -29,6 +29,16 @@ const Edit = styled.div`
   display: none;
 `;
 
+const Time = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #616b74;
+  font-size: 15px;
+  cursor: pointer;
+  display: none;
+`;
+
 const TodoItemBlock = styled.div`
   display: flex;
   align-items: center;
@@ -39,6 +49,9 @@ const TodoItemBlock = styled.div`
       display: initial;
     }
     ${Edit} {
+      display: initial;
+    }
+    ${Time} {
       display: initial;
     }
   }
@@ -76,7 +89,7 @@ const Text = styled.div`
 `;
 
 function TodoItem(props) {
-  const { todo: {id, text, done}, onRemove, onToggle, onModal } = props;
+  const { todo: {id, text, done}, onRemove, onToggle, onModal, onformat } = props;
 
   return (
     <TodoItemBlock>
@@ -84,6 +97,7 @@ function TodoItem(props) {
         {done && <MdDone />}
         </CheckCircle>
       <Text done={done}>{text}</Text>
+      <Time >{onformat}</Time>
       <Edit onClick={() => onModal(id)}>
         <MdEdit />
       </Edit>

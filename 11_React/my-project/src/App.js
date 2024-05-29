@@ -25,12 +25,22 @@ const nextId = useRef(4);
     const todo = {
       id: uuidv4(),
       text,
-      done: false
+      done: false,
     };
-
+    
+    
     setTodos(todos.concat(todo));
     nextId.current += 1;
   };
+  
+  const createdDate = new Date().getTime();
+
+  const onTime = new Date(createdDate);
+
+  const formattedDate = onTime.getFullYear() + '.' + 
+  ('0' + (onTime.getMonth() + 1)).slice(-2) + '.' + 
+  ('0' + onTime.getDate()).slice(-2);
+  
 
   const handleRemove = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
@@ -71,7 +81,7 @@ const nextId = useRef(4);
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead doingWork={doingWork !== 0 ? doingWork + '개 입니다! 힘내세요!': '없습니다! 고생했어요!'}/>
-        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onModal={handleOpenModal}/>
+        <TodoList todos={todos} onRemove={handleRemove} onToggle={handleToggle} onModal={handleOpenModal} onformat={formattedDate}/>
         <TodoInsert onInsert={handleInsert}/>
       </TodoTemplate>
       

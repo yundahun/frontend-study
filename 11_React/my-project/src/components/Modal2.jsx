@@ -57,6 +57,15 @@ const ModalContainer = styled.div`
     align-items: center;
     padding: 35px 20px;
   }
+
+  .button {
+    background-color: #4c5af4;
+  color: #ffffff;
+  border: 2px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  }
 `;
 
 function Modal2(props) {
@@ -70,7 +79,7 @@ function Modal2(props) {
         </div>
         <hr />
         <div className="footer">
-          <button type="button" onClick={onCloseModal} >되돌아가기</button>
+          <button className="button" type="button" onClick={onCloseModal} >되돌아가기</button>
         </div>
       </ModalContainer>
     </Background>

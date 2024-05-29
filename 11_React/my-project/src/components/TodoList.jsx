@@ -18,17 +18,18 @@ const TodoListBlock = styled.div`
 
 
 function TodoList(props) {
-  const { todos, onRemove, onToggle, onModal } = props;
+  const { todos, onRemove, onToggle, onModal, onformat} = props;
 
   const trueDone = todos.filter((todo) => todo.done)
   const falseDone = todos.filter((todo) => !todo.done)
+  
 
   return (
     <>
     <TodoListBlock>
       <h1>해야 할 일!</h1>
       {falseDone.map((todo, index) => {
-        return <TodoItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle} onModal={onModal} />;
+        return <TodoItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle} onModal={onModal} onformat={onformat} />;
       })}
     </TodoListBlock>
 
@@ -36,7 +37,7 @@ function TodoList(props) {
       <hr />
       <h1>완료!</h1>
       {trueDone.map((todo, index) => {
-        return <TodoItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle} onModal={onModal} />;
+        return <TodoItem key={todo.id} todo={todo} onRemove={onRemove} onToggle={onToggle} onModal={onModal} onformat={onformat} />;
       })}
     </TodoListBlock>
     </>
