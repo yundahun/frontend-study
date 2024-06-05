@@ -53,6 +53,7 @@ import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 import SimpleRouter from './chapter16/SimpleRouter';
 import ReduxTextApp from './chapter18/ReduxTextApp';
 import { store } from './chapter18/app/store';
+import ProductList from './chapter18/features/product/ProductList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -143,6 +144,7 @@ root.render(
     <Provider store={store}>
         <ReduxTextApp />
     </Provider>
+
 );
 
 // 4장 예제
