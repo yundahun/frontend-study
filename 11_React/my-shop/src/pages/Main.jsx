@@ -1,16 +1,17 @@
 import styled from "styled-components";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllProducts, selectProductList } from "../features/product/productSlice";
+import { addMoreProducts, getAllProducts, getMoreProductsAsync, selectProductList, selectStatus } from "../features/product/productSlice";
 import ProductListItem from "../components/ProductListItem";
-import ProductDetail from "./ProductDetail";
+import { CircleLoader } from "react-spinners";
 
 // 리액트(JS)에서 이미지 파일 가져오기
 // 1) src 폴더 안 이미지(상대 경로로 import해서 사용)
 import yonexImg from "../images/yonex.jpg";
+import { getMoreProducts } from "../api/productAPI";
 // 2) public 폴더 안 이미지(root 경로로 바로 접근)
 // 빌드 시 src 폴더에 있는 코드와 파일은 압축이 되지만 public 폴더에 있는 것들은 그대로 보존
 // 이미지 같은 수정이 필요없는 static 파일의 경우 public에 보관하기도 함
@@ -28,6 +29,7 @@ const MainBackground = styled.div`
 function Main() {
   const dispatch = useDispatch();
   const productList = useSelector(selectProductList);
+  const status = useSelector(selectStatus); // API 요청 상태 로딩 상태
 
   // 처음 마운트 됐을 때 서버에 상품  목록 데이털르 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
@@ -42,6 +44,17 @@ function Main() {
         console.error(err);
       });
   }, []);
+
+  const handleGetMoreProducts = async () => {
+    const result = await getMoreProducts();
+    console.log(result);
+    dispatch(addMoreProducts(result))
+  }
+
+  const handleGetMoreProductsAsync =  () => {
+    dispatch(getMoreProductsAsync());
+  }
+  
   
   return (
     <>
@@ -80,8 +93,32 @@ function Main() {
             */}
             {productList.map((product) => <ProductListItem key={product.id} product={product} />)}
             {/* {productList.map((product) => <ProductDetail key={product.id} product={product} />)} */}
+
+            {/* 로딩 만들기 */}
+            {status === 'loading' && 
+                <CircleLoader
+                color="#2e2747"
+                cssOverride={{
+                  margin: '10px auto'
+                }}
+                />
+            }
           </Row>
         </Container>
+
+        {/* 상품 더보기 기능 만들기
+          더보기 버튼 클릭시 axios를 사용하여 데이터 요청
+          받아온 결과를 전역 상태에 추가하기 위해 리듀서 추가 및 액션 생성 함수 export
+          스토어에 dispatch로 요청(액션) 보내기
+        */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProducts}>
+          더보기
+        </Button>
+
+        {/* thunk를 이용한 비동기 작업 처리하기 */}
+        <Button variant="secondary" className="mb-4" onClick={handleGetMoreProductsAsync}>
+          더보기 {status}
+        </Button>
       </section>
     </>
   );
