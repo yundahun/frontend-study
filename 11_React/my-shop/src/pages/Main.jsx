@@ -31,7 +31,7 @@ function Main() {
   const productList = useSelector(selectProductList);
   const status = useSelector(selectStatus); // API 요청 상태 로딩 상태
 
-  // 처음 마운트 됐을 때 서버에 상품  목록 데이털르 요청하고
+  // 처음 마운트 됐을 때 서버에 상품  목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
   useEffect(() => {
     // 서버에 상품 목록 요청
