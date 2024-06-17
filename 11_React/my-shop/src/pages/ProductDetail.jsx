@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Alert, Button, Col, Container, Form, Nav, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form, Modal, Nav, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 import { clearSelectedProduct, getSelectedProduct, selectSelectedProductList } from "../features/product/productSlice";
 import { toast } from "react-toastify";
 import TabContents from "../components/TabContents";
+import { addItemToCart } from "../features/cart/cartSlice";
 
 // 스타일드 컴포넌트를 이용한 애니메이션 속성 적용
 const highlight = keyframes`
@@ -23,7 +24,11 @@ function ProductDetail() {
   const [info, setInfo] = useState(true); // Info alert창
   const [orderCount, setOrderCount] = useState(1); // 주문수량 상태
   const [currentTabIndex , setCurrentTabIndex ] = useState(0); // 현재 탭 상태
-  const [currentTab, setCurrentTab] = useState('detail');
+  const [currentTab, setCurrentTab] = useState('detail'); // 현재 탭 상태
+  const [showModal, setShowModal] = useState(false); // 모달상태
+  const handleCloseModal = () => setShowModal(false);
+  const handleOpenModal = () => setShowModal(true);
+  const navigate = useNavigate();
 
   const handleChangeOrderCount = (e) => {
     // 숫자외 입력 시 유효성 검사 후 경고 토스트 띄우기
@@ -74,6 +79,23 @@ function ProductDetail() {
     };
   }, []);
 
+  const handleClickCart = () => {
+    // 상품 정보 + 주문수량도 같이 전달
+    // 객체 형태로 여러 데이터 전달하기
+    // dispatch(addItemToCart({
+    //   id: product.id,
+    //   title: product.title,
+    //   price: product.price,
+    //   count: orderCount
+    // }));
+    dispatch(addItemToCart({
+      ...product,
+      count: orderCount
+    }));
+
+    handleOpenModal();
+  };
+
   // if (!product) {
   //   return null;
   // }
@@ -105,6 +127,8 @@ function ProductDetail() {
             <Form.Control type="text" value={orderCount} onChange={handleChangeOrderCount} />
           </Col>
           <Button variant="primary">주문하기</Button>
+          <Button variant="warning" onClick={handleClickCart}>장바구니</Button>
+
         </Col>
       </Row>
 
@@ -118,7 +142,7 @@ function ProductDetail() {
         </Nav.Item>
         <Nav.Item>
           {/* <Nav.Link eventKey="link-1" onClick={() => setCurrentTabIndex(1)}>리뷰</Nav.Link> */}
-          <Nav.Link eventKey="link-0" onClick={() => setCurrentTab('review')}>상세정보</Nav.Link>
+          <Nav.Link eventKey="link-1" onClick={() => setCurrentTab('review')}>리뷰</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="link-2" onClick={() => setCurrentTabIndex(2)}>Q&amp;A</Nav.Link>
@@ -130,7 +154,7 @@ function ProductDetail() {
 
       {/* 탭의 내용을 다 만들어 놓고 조건부 렌더링하면 됨 */}
       {/* 방법1: 삼항 연산자 사용(가독성 나쁨) */}
-      {currentTabIndex === 0
+      {currentTabIndex === 0  
         ? <div>탭 내용 1</div>
         : currentTabIndex === 1
           ? <div>탭 내용 2</div>
@@ -161,6 +185,25 @@ function ProductDetail() {
         'qa': <div>탭 내용 3</div>,
         'exchange': <div>탭 내용 4</div>
       }[currentTab]}
+
+      {/* 장바구니 모달 => 추후 범용적인 공통 모달로 만들고 구체화하여 사용하는 것이 좋음 */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>🛒 인봉상점 알림</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          장바구니에 상품을 담았습니다.<br/>
+          장바구니로 이동하시겠습니까?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            취소
+          </Button>
+          <Button variant="primary" onClick={() => navigate('/cart')}>
+            확인
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };
