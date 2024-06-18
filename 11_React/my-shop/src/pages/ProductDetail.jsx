@@ -79,6 +79,22 @@ function ProductDetail() {
     };
   }, []);
 
+  // 상품 상세페이지에 들어갔을 때 해당 상품이 존재할때만 id값을 localStorage에 추가
+  useEffect(() => {
+    console.log(product);
+
+    if(!product) return;
+
+    let recentProducts = JSON.parse(localStorage.getItem('recentProducts')) || []; //처음엔 null이니까 기본값으로 빈배열 넣어줌
+
+    // id값을 넣기 전에 기존 배열에 존재하는지 검사하거나
+    // 아니면  일단 배열에 넣고 Set 자료형을 이용하여 중복 제거
+    recentProducts.unshift(productId);
+    recentProducts = new Set(recentProducts); // 배열을 Set 객체로 만듦(중복 요소가 제거됨)
+    recentProducts = [...recentProducts];
+    localStorage.setItem('recentProducts', JSON.stringify(recentProducts)); // JSON 문자열로 저장
+  }, [product]);
+
   const handleClickCart = () => {
     // 상품 정보 + 주문수량도 같이 전달
     // 객체 형태로 여러 데이터 전달하기
