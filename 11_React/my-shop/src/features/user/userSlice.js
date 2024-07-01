@@ -12,8 +12,9 @@ const userSlice = createSlice({
     loginSuccess: (state, { payload: user }) => {
       state.user = user;
     },
-    logoutSuccess: (state) => {
+    logoutSuccess: (state) => { // 다시 null 값으로 초기화
       state.user = null;
+      localStorage.removeItem('user');
     }
   }
 });

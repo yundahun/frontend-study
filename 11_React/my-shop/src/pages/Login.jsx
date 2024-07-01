@@ -38,15 +38,19 @@ function Login() {
 
   const handleLogin =async () => {
     try {
-    const result = await axios.get(`http://ec2-13-209-77-178.ap-northeast-2.compute.amazonaws.com:8080/login?id=${loginForm.username}&pw=${loginForm.password}`)
+    const result = await axios.get(`${process.env.REACT_APP_API_URL}/login?id=${loginForm.username}&pw=${loginForm.password}`)
     console.log(result);
 
     // 로그인 성공 시 서버가 내려준 토큰(JWT)과 사용자 정보
     // const { token, user } = result.data;
+    const user = { name: '윤다훈', nickname: 'Inbong Kim', role: 'member'}
 
     //전역 상태에 사용자 정보 저장
-      dispatch(loginSuccess({ name: '윤다훈', nickname: 'Inbong Kim', role: 'member'}));
+      dispatch(loginSuccess(user));
+      // 발급받은 토큰 저장
       localStorage.setItem('token', result.data);
+      // 로그인 상태를 유지하기 위해 로컬 스토리지 사용
+      localStorage.setItem('user',  JSON.stringify(user));
 
       navigate('/');
     } catch (error) {
